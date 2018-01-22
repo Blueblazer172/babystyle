@@ -1,0 +1,65 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \Magento\Theme\Block\Html\Header $block
+ */
+$welcomeMessage = $block->getWelcome();
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$baseurl = $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore(0)->getBaseUrl();
+
+?>
+<?php switch ($block->getShowPart()):
+    case 'welcome': ?>
+        <li class="greet welcome" data-bind="scope: 'customer'">
+            <a href="<?php echo $baseurl.'customer/account'; ?>"><span data-bind="text: customer().fullname ? $t('Welcome, %1!').replace('%1', customer().fullname) : '<?=$block->escapeHtml($welcomeMessage) ?>'"></span></a>
+        </li>
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "customer": {
+                            "component": "Magento_Customer/js/view/customer"
+                        }
+                    }
+                }
+            }
+        }
+        </script>
+    <?php break; ?>
+
+    <?php case 'other': ?>
+        <?php echo $block->getChildHtml(); ?>
+    <?php break; ?>
+
+<?php endswitch; ?>
+
+
+
+<script>
+require(['jquery', 'jquery/ui'], function($){ 
+
+	jQuery( ".nav-toggle" ).click(function() {
+		if (typeof $.widget === "undefined") 
+		{
+			if(jQuery("html").hasClass("nav-open"))
+			{
+				jQuery("html").removeClass("nav-before-open nav-open");
+				//console.log("IF");
+			}
+			else
+			{
+				jQuery("html").addClass("nav-before-open nav-open");
+				//console.log("ELSE");
+			}
+		}
+	});
+});
+</script>

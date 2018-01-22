@@ -1,0 +1,21 @@
+{
+    "name": "allin/module-categorycustomtitle",
+    "description": "This Module generate custom title field for category.",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Mage2Gen",
+            "email": "info@mage2gen.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Allin\\CategoryCustomTitle\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

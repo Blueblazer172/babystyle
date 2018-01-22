@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="osc" translate="label comment" sortOrder="100" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>One Step Checkout</label>
+            <tab>mageplaza</tab>
+            <resource>Mageplaza_Osc::config_osc</resource>
+            <group id="general" translate="label comment" sortOrder="10" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="is_enabled" translate="label comment" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable One Step Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label comment" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>One Step Checkout Page Title</label>
+                </field>
+                <field id="description" translate="label comment" sortOrder="40" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>One Step Checkout Description</label>
+                    <comment>HTML allowed</comment>
+                </field>
+                <field id="default_country_id" translate="label comment" sortOrder="60" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Country</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <comment>Select default country for Billing address and Shipping address.</comment>
+                </field>
+                <field id="default_shipping_method" translate="label comment" sortOrder="70" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Shipping Method</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Shipping\Methods</source_model>
+                    <comment>Set default shipping method in the checkout process.</comment>
+                </field>
+                <field id="default_payment_method" translate="label comment" sortOrder="80" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Payment Method</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Payment\Methods</source_model>
+                    <comment>Set default payment method in the checkout process.</comment>
+                </field>
+                <field id="allow_guest_checkout" translate="label comment" sortOrder="90" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow Guest Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Allow checking out as a guest. Guest can create an account in the checkout page.</comment>
+                </field>
+                <field id="allow_ship_to_defferent_address" translate="label comment" sortOrder="100" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow shipping To Different Address</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Allow customers can shipping to a different address from billing address.</comment>
+                </field>
+                <field id="auto_detect_address" sortOrder="101" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use Auto Suggestion Technology</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Address\Suggest</source_model>
+                    <comment>When customer fills address fields, it will suggest a list of full addresses.</comment>
+                </field>
+                <field id="google_api_key" sortOrder="102" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Api Key</label>
+                    <comment><![CDATA[Get Api key <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">here</a>]]></comment>
+                    <depends>
+                        <field id="auto_detect_address">google</field>
+                    </depends>
+                </field>
+                <field id="google_specific_country" sortOrder="102" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Restrict the auto suggestion for a specific country</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <depends>
+                        <field id="auto_detect_address">google</field>
+                    </depends>
+                </field>
+                <field id="pca_website_key" sortOrder="102" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Capture+ Key</label>
+                    <comment>
+                        To set up a Capture+ account or these keys, please visit &lt;a href="http://www.pcapredict.com/en-us/address-capture-software/?utm_source=mageplaza.com&amp;utm_medium=one-step-checkout&amp;utm_campaign=one-step-checkout" target="_blank" style="margin-left:0;"&gt;Getting Started&lt;/a&gt; page
+                    </comment>
+                    <depends>
+                        <field id="auto_detect_address">pca</field>
+                    </depends>
+                </field>
+                <field id="pca_country_lookup" sortOrder="103" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>IP Country Lookup</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>The default country will be set based on location of the customer.</comment>
+                    <depends>
+                        <field id="auto_detect_address">pca</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="display_configuration" translate="label comment" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Display Configuration</label>
+                <field id="is_enabled_review_cart_section" translate="label comment" sortOrder="1" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Order Review Section</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Enableddisabled</source_model>
+                    <comment>You can disable Order Review Section. It is enabled by default.</comment>
+                </field>
+                <field id="is_show_product_image" translate="label comment" sortOrder="2" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Product Thumbnail Image</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="product_image_width" translate="label comment" sortOrder="3" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Thumbnail Image Width</label>
+                    <comment>in pixel, e.g: 75</comment>
+                    <depends>
+                        <field id="is_show_product_image">1</field>
+                    </depends>
+                </field>
+                <field id="product_image_height" translate="label comment" sortOrder="4" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Thumbnail Image Height</label>
+                    <comment>in pixel, e.g: 75</comment>
+                    <depends>
+                        <field id="is_show_product_image">1</field>
+                    </depends>
+                </field>
+                <field id="is_show_edit_cart_link" translate="label comment" sortOrder="5" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Edit Cart Link</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="is_enabled_coupon" translate="label comment" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Discount Code Section</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Enableddisabled</source_model>
+                    <comment>Show Discount Code box in Checkout page.</comment>
+                </field>
+                <field id="display_apply_coupon_button" translate="label comment" sortOrder="20" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>"Apply Coupon" Button</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Enableddisabled</source_model>
+                    <comment>If "Disabled", Coupon code will be validated automatically after enter coupon code.</comment>
+                </field>
+                <field id="is_enabled_comments" translate="label comment" sortOrder="30" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order Comment</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Enableddisabled</source_model>
+                    <comment>Allow customer comment in order.</comment>
+                </field>
+                <field id="is_enabled_giftmessage" translate="label comment" sortOrder="32" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Gift Message</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Giftmessage</source_model>
+                </field>
+                <field id="is_enabled_giftwrap" translate="label comment" sortOrder="40" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Gift Wrap</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Enableddisabled</source_model>
+                </field>
+                <field id="giftwrap_type" translate="label comment" sortOrder="41" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Calculate Method</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Giftwrap</source_model>
+                    <comment>To calculate gift wrap fee based on item or order.</comment>
+                    <depends>
+                        <field id="is_enabled_giftwrap">1</field>
+                    </depends>
+                </field>
+                <field id="giftwrap_amount" translate="label comment" sortOrder="42" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Amount</label>
+                    <comment>Enter the amount of gift wrap fee.</comment>
+                    <depends>
+                        <field id="is_enabled_giftwrap">1</field>
+                    </depends>
+                </field>
+                <field id="is_enabled_newsletter" translate="label comment" sortOrder="60" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Newsletter Checkbox</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Enableddisabled</source_model>
+                    <comment>Show Sign up newsletter selection</comment>
+                </field>
+                <field id="is_checked_newsletter" translate="label comment" sortOrder="61" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Checked Newsletter by default</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="design_configuration" translate="label comment" sortOrder="30" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Design Configuration</label>
+                <field id="page_layout" translate="label comment" sortOrder="1" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Checkout Page Layout</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Layout</source_model>
+                </field>
+                <field id="popup_effect" translate="label comment" sortOrder="2" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Effect</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Effect</source_model>
+                </field>
+                <field id="is_show_numbering" translate="label comment" sortOrder="3" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Heading</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Heading\Icon</source_model>
+                    <comment>Display number/icon in heading.</comment>
+                </field>
+                <field id="heading_style" translate="label comment" sortOrder="5" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Heading Style</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Heading</source_model>
+                </field>
+                <field id="style_color" translate="label comment" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Heading Background Color</label>
+                    <source_model>Mageplaza\Osc\Model\System\Config\Source\Color</source_model>
+                </field>
+                <field id="style_custom" translate="label comment" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Heading Background Color</label>
+                    <validate>jscolor {hash:true,refine:false}</validate>
+                    <depends>
+                        <field id="style_color">custom</field>
+                    </depends>
+                </field>
+                <field id="style_heading_custom" translate="label comment" sortOrder="6" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Heading Text Color</label>
+                    <validate>jscolor {hash:true,refine:false}</validate>
+                </field>
+                <field id="place_order_color" sortOrder="22" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Place Order button color</label>
+                    <validate>jscolor {hash:true,refine:false}</validate>
+                </field>
+                <field id="add_jquery_library" translate="label comment" sortOrder="40" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add jQuery Library</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If you have ready jQuery in All pages, you should disable this by choosing No.</comment>
+                </field>
+            </group>
+            <group id="terms_conditions" translate="label comment" sortOrder="40" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Terms and Conditions Configuration</label>
+                <field id="enabled_terms" translate="label comment" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Terms and Conditions (TOS)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <comment>Enable/Disable TOS.</comment>
+                </field>
+                <field id="require_read" translate="label comment" sortOrder="13" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Have to read TOS before checking the checkbox</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Customers have to read all TOS before clicking on ACCEPT.</comment>
+                </field>
+                <field id="checkbox_text" translate="label comment" sortOrder="15" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Checkbox Text</label>
+                </field>
+                <field id="term_title" translate="label comment" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Terms and Conditions Title</label>
+                </field>
+                <field id="term_html" translate="label comment" sortOrder="30" type="editor" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Terms and Conditions Content</label>
+                    <comment>Allowed HTML. Support CMS Static Block syntax.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

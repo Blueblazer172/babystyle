@@ -1,0 +1,28 @@
+<!--  Image Script  -->
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$requestInterface = $objectManager->get('Magento\Framework\App\RequestInterface');
+
+#$routeName      = $requestInterface->getRouteName();
+#$controllerName = $requestInterface->getControllerName(); 
+#$actionName     = $requestInterface->getActionName();
+$moduleName     = $requestInterface->getModuleName(); 
+if($moduleName != "checkout")
+{
+	?>
+	<div class="ssl-footer">
+		<span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=LnPnmJ3XAdZkjCBoSEUzcBNZi3J00HC2rFT65rIjYvWlEhklrQKMoSJ98kka"></script></span>
+		<script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+		<span id="cdSiteSeal1"><script type="text/javascript" src="//tracedseals.starfieldtech.com/siteseal/get?scriptId=cdSiteSeal1&amp;cdSealType=Seal1&amp;sealId=55e4ye7y7mb7360579ac3b937f89ad5ey7mb7355e4ye7eeef4db7e06cb97d7b4"></script></span>
+	</div>
+	<?php
+}
+?>
+<!--  Image Script  -->
+
+
+<style>
+.zopim{
+	right: 110px !important;
+}
+</style>

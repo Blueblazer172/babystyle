@@ -1,0 +1,29 @@
+<?php 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$request = $objectManager->get('Magento\Framework\App\Action\Context')->getRequest(); 
+
+?>
+
+<div class="footer-design">
+<?php if ($request->getFullActionName() == 'cms_index_index'){ ?>
+
+<img src="<?php echo $this->getViewFileUrl('images/footer-home-logo.jpg'); ?>" alt="home footer logo">
+
+<?php  }
+	else{ 
+			?>
+<img src="<?php echo $this->getViewFileUrl('images/footer-logo-inner.jpg'); ?>" alt="inner footer logo">
+	
+<?php 	}	?>
+
+</div>
+
+
+
+<div id="popup-mpdal" class="popup-mpdal">
+
+<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('freeshiping')->toHtml();?>
+
+</div> 
+
+

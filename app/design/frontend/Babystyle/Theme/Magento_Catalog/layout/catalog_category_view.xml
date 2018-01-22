@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="columns.top">
+            <container name="category.view.container" htmlTag="div" htmlClass="category-view" after="-">
+                <block class="Magento\Catalog\Block\Category\View" name="category.image" template="Magento_Catalog::category/image.phtml"/>
+                <!-- <block class="Magento\Catalog\Block\Category\View" name="category.description" template="Magento_Catalog::category/description.phtml"/> -->
+              
+            </container>
+			<!-- <referenceBlock  name="breadcrumbs" remove="true"/> -->
+        </referenceContainer>
+        
+        <referenceBlock name="page.main.title">
+            <arguments>
+                <argument name="id" xsi:type="string">page-title-heading</argument>
+                <argument name="add_base_attribute_aria" xsi:type="string">page-title-heading toolbar-amount</argument>
+            </arguments>
+            <block class="Magento\Catalog\Block\Category\Rss\Link" name="rss.link" template="Magento_Catalog::category/rss.phtml"/>
+        </referenceBlock>
+		
+		
+		<referenceContainer name="content">
+			<container name="category.view.child.container" htmlTag="div" htmlClass="category-view-child" before="category.products">
+				<!-- <block class="Ibnab\CategoriesSide\Block\CategorisCollection" name="childcategories" template="Ibnab_CategoriesSide::childcategories.phtml" /> -->
+				  <block class="Magento\Catalog\Block\Category\View" name="category.cms" template="Magento_Catalog::category/cms.phtml"/>
+			</container>
+		</referenceContainer>
+		<!-- <referenceBlock name="page.main.title" display="false"/> -->
+    </body>
+	 
+	
+</page>

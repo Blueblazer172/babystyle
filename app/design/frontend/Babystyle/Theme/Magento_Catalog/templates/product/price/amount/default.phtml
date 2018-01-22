@@ -1,0 +1,68 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php /** @var \Magento\Framework\Pricing\Render\Amount $block */ ?>
+
+<?php 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$request = $objectManager->get('Magento\Framework\App\Action\Context')->getRequest(); 
+
+$currency = $objectManager->get('Magento\Store\Model\StoreManagerInterface');
+$currencycode = $currency->getStore()->getCurrentCurrencyCode();
+$currencydata = $objectManager->create('Magento\Directory\Model\CurrencyFactory')->create()->load($currencycode);
+$currencySymbol = $currencydata->getCurrencySymbol();
+
+$_currencysymbol = $objectManager->get('Magento\Directory\Model\Currency');
+$fprice = $block->getDisplayValue();
+?>
+
+<span class="price-container <?php /* @escapeNotVerified */ echo $block->getAdjustmentCssClasses() ?>" <?php echo $block->getSchema() ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '' ?>>
+    <?php if ($block->getDisplayLabel()): ?>
+        <span class="price-label"><?php /* @escapeNotVerified */ echo $block->getDisplayLabel(); ?></span>
+    <?php endif; ?>
+    <?php if($request->getFullActionName() == 'catalog_product_view'): ?>
+	<span <?php if ($block->getPriceId()): ?> id="<?php /* @escapeNotVerified */ echo $block->getPriceId() ?>"<?php endif;?> class="price-wrapper" >
+	<?php	
+		//$fprice = $block->formatCurrency($block->getDisplayValue());
+		$price= (string)$fprice;
+		$priceval = explode(".", $price);
+		?>
+		<span class="price">
+			<?/* <small><?php echo $currencySymbol; ?></small><span><?php echo $priceval[0]; ?></span><sup><?php echo isset($priceval[1]) ? $priceval[1] : Null; ?></sup> */ ?>
+			<?php /* @escapeNotVerified */ #echo $block->formatCurrency($block->getDisplayValue(), (bool)$block->getIncludeContainer()) ?>
+			
+			<?php echo $_currencysymbol->getCurrencySymbol(); ?><span itemprop="price" class="price"><?php echo number_format((float)$fprice, 2, '.', ''); ?></span><?php echo $currencySymbol; ?>
+		</span>
+			
+		
+	</span>
+	<?php else:?>
+	<span <?php if ($block->getPriceId()): ?> id="<?php /* @escapeNotVerified */ echo $block->getPriceId() ?>"<?php endif;?>
+        <?php echo($block->getPriceDisplayLabel()) ? 'data-label="' . $block->getPriceDisplayLabel() . $block->getPriceDisplayInclExclTaxes() . '"' : '' ?>
+        data-price-amount="<?php /* @escapeNotVerified */ echo $block->getDisplayValue(); ?>"
+        data-price-type="<?php /* @escapeNotVerified */ echo $block->getPriceType(); ?>"
+        class="price-wrapper <?php /* @escapeNotVerified */ echo $block->getPriceWrapperCss(); ?>"
+        <?php echo $block->getSchema() ? ' itemprop="price"' : '' ?>>
+        <?php /* @escapeNotVerified */ #echo $block->formatCurrency($block->getDisplayValue(), (bool)$block->getIncludeContainer()) ?>
+		
+		<?php echo $_currencysymbol->getCurrencySymbol(); ?><span itemprop="price" class="price"><?php echo number_format((float)$fprice, 2, '.', ''); ?></span><?php echo $currencySymbol; ?>
+	</span>
+	<?php endif; ?>
+	
+	
+    
+	<?php if ($block->hasAdjustmentsHtml()): ?>
+        <?php echo $block->getAdjustmentsHtml() ?>
+    <?php endif; ?>
+    <?php if ($block->getSchema()): ?>
+        <meta itemprop="priceCurrency" content="<?php /* @escapeNotVerified */ echo $block->getDisplayCurrencyCode()?>" />
+    <?php endif; ?>
+	<link itemprop="availability" href="http://schema.org/InStock" />
+</span>

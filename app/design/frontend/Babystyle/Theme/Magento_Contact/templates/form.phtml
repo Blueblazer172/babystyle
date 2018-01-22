@@ -1,0 +1,105 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<div class="form-contact-cls">
+	<div class="form-contact-lft">
+		<form class="form contact"
+			  action="<?php /* @escapeNotVerified */ echo $block->getFormAction(); ?>"
+			  id="contact-form"
+			  method="post"
+			  data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>"
+			  data-mage-init='{"validation":{}}'>
+			<fieldset class="fieldset">
+				<?php /* <legend class="legend"><span><?php  @escapeNotVerified  echo __('Write Us') ?></span></legend><br /> */ ?>
+				<div class="field note no-label"><?php /* @escapeNotVerified */ echo __("Drop us a line and we'll get back to you shortly. Thank you.") ?></div>
+				<div class="field name required">
+					<label class="label" for="name"><span><?php /* @escapeNotVerified */ echo __('Name') ?></span></label>
+					<div class="control">
+						<input name="name" id="name" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+					</div>
+				</div>
+				<div class="field email required">
+					<label class="label" for="email"><span><?php /* @escapeNotVerified */ echo __('Email') ?></span></label>
+					<div class="control">
+						<input name="email" id="email" title="<?php /* @escapeNotVerified */ echo __('Email') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+					</div>
+				</div>
+				<div class="field telephone">
+					<label class="label" for="telephone"><span><?php /* @escapeNotVerified */ echo __('Phone Number') ?></span></label>
+					<div class="control">
+						<input name="telephone" id="telephone" title="<?php /* @escapeNotVerified */ echo __('Phone Number') ?>" value="" class="input-text" type="text" />
+					</div>
+				</div>
+				<div class="field comment required">
+					<label class="label" for="comment"><span><?php /* @escapeNotVerified */ echo __('How may we help') ?></span></label>
+					<div class="control">
+						<textarea name="comment" id="comment" title="<?php /* @escapeNotVerified */ echo __('How may we help') ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"></textarea>
+					</div>
+				</div>
+				
+				<div class="field">
+					<label class="label" for="telephone"><span><?php /* @escapeNotVerified */ echo __('') ?></span></label>
+					<div class="control">
+						<!-- ==========================Captcha Code start================================= -->						
+						<?php /* <div class="recaptcha" style="overflow:hidden;position:relative;">				
+						<div class="g-recaptcha" data-sitekey="6Lcynh8UAAAAAKO91jP6LTSbV-CYS_NpA7tdq-Gc"></div>
+							<input type="checkbox" id="recaptcha-verification-1" name="recaptcha-verification-1" value="" class="hide required-entry" style="visibility:hidden;position:absolute;left:-1000000px" data-validate="{required:true}" />
+							<div id="recaptcha-1"></div>
+								<script type="text/javascript">
+									var onloadCallback = function() {
+									grecaptcha.render('recaptcha-1', {
+									'sitekey': "6Lcynh8UAAAAAKO91jP6LTSbV-CYS_NpA7tdq-Gc",
+									'theme': "light",
+									'callback': function(response) {
+										if (response.length > 0) {
+											jQuery('recaptcha-verification-1').writeAttribute('value', 'checked');
+											jQuery('recaptcha-verification-1').checked = true;
+											jQuery('#recaptcha-verification-1').attr('checked','checked');
+											jQuery('#recaptcha-verification-1').addClass('validation-passed');
+											jQuery('#recaptcha-verification-1').removeClass('validation-failed');
+										}
+									}
+									});
+									};
+								</script>
+							<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=en" async defer></script>
+						</div> */ ?>
+						<!-- ==========================Captcha Code End================================= -->
+						<div class="g-recaptcha" data-sitekey="6Ld_hDAUAAAAABGKs8bLnzHbvWwYGABz2FeVsxwu"></div>
+					</div>
+				</div>
+				
+				<?php echo $block->getChildHtml('form.additional.info'); ?>
+			</fieldset>
+			<div class="actions-toolbar">
+				<div class="primary">
+					<input type="hidden" name="hideit" id="hideit" value="" />
+					<button type="submit" title="<?php /* @escapeNotVerified */ echo __('Submit') ?>" class="action submit primary">
+						<span><?php /* @escapeNotVerified */ echo __('Submit') ?></span>
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="form-contact-rgt">	
+		<div class="contact-social-link">
+		<div class="connect-social-media"><?php /* @escapeNotVerified */ echo __("Contact us via social media") ?>
+		</div>           		
+			<ul>
+				<li><a href="https://www.instagram.com/babystyleca/" target="_blank"><em class="fa fa-instagram"></em></a></li>
+				<li><a href="https://www.pinterest.com/babystyleCA/" target="_blank"><em class="fa fa-pinterest-p"></em></a></li>
+				<li><a href="https://www.facebook.com/babystyle.ca/" target="_blank"><em class="fa fa-facebook"></em></a></li>
+				<li><a href="https://www.linkedin.com/company/babystyle-ca" target="_blank"><em class="fa fa-linkedin"></em></a></li>
+				<li><a href="https://plus.google.com/+BabystyleCa" target="_blank"><em class="fa fa-google-plus"></em></a></li>
+				<li><a href="mailto:care@babystyle.ca" target="_blank"><em class="fa fa-envelope-o"></em></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script src='https://www.google.com/recaptcha/api.js'></script>

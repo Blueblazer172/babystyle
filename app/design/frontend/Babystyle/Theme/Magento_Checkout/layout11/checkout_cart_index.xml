@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="checkout_cart_item_renderers"/>
+    <update handle="checkout_shipping_price_renderer"/>
+    <body>
+         <!-- <referenceBlock name="checkout.cart.shipping" remove="true" /> --> <!-- use this code -->
+		 
+		<referenceContainer name="content">
+			
+			<block class="Magento\Cms\Block\Block" name="cart_content" after="checkout.cart">
+				<arguments>
+					<argument name="block_id" xsi:type="string">cart_content</argument>
+				</arguments>
+			</block>
+        </referenceContainer>
+		 
+    </body>
+</page>

@@ -1,0 +1,237 @@
+"Gift wrap","Gift wrap"
+"New Address","New Address"
+Country,Country
+"Please specify a payment method.","Please specify a payment method."
+"Unable to update cart item","Unable to update cart item"
+"Quote item is not found.","Quote item is not found."
+"Can not save item.","Can not save item."
+"Please correct the email address.","Please correct the email address."
+"If there is an account associated with %1 you will receive an email with a link to reset your password.","If there is an account associated with %1 you will receive an email with a link to reset your password."
+"We're unable to send the password reset email.","We're unable to send the password reset email."
+"Login successfully. Please wait ...","Login successfully. Please wait ..."
+"Please enter a username and password.","Please enter a username and password."
+"Please enter billing address information.","Please enter billing address information."
+"Coupon has been canceled.","Coupon has been canceled."
+"Coupon has been applied.","Coupon has been applied."
+"Coupon is invalid.","Coupon is invalid."
+"Error! cannot apply this coupon.","Error! cannot apply this coupon."
+"You should agree to the terms and conditions first.","You should agree to the terms and conditions first."
+"There was an error processing your order. Please contact us or try again later.","There was an error processing your order. Please contact us or try again later."
+"There is already a customer registered using this email address. Please login using this email address or enter a different email address to register your account.","There is already a customer registered using this email address. Please login using this email address or enter a different email address to register your account."
+"Cannot set Payment Method.","Cannot set Payment Method."
+"Please select a shipping method.","Please select a shipping method."
+"One step checkout is turned off.","One step checkout is turned off."
+"--Select a CMS Static Blocks--","--Select a CMS Static Blocks--"
+"Field %1 is required","Field %1 is required"
+"Use helper with defined EAV entity","Use helper with defined EAV entity"
+Active,Active
+Inactive,Inactive
+No,No
+Google,Google
+"Capture+ by PCA Predict","Capture+ by PCA Predict"
+Capture+,Capture+
+Street,Street
+"Country Id","Country Id"
+"Region ","Region "
+"Region Id","Region Id"
+City,City
+Postcode,Postcode
+Default,Default
+Orange,Orange
+Green,Green
+Black,Black
+Blue,Blue
+"Dark Blue","Dark Blue"
+Pink,Pink
+Red,Red
+Violet,Violet
+Custom,Custom
+Zoom,Zoom
+Newspaper,Newspaper
+"Horizontal move","Horizontal move"
+"Move from top","Move from top"
+"3D unfold","3D unfold"
+Zoom-out,Zoom-out
+Disabled,Disabled
+"Show In Review Section","Show In Review Section"
+"Per Order","Per Order"
+"Per Item","Per Item"
+"Style 1","Style 1"
+"Style 2","Style 2"
+"Style 3","Style 3"
+Icon,Icon
+Number,Number
+"1 Column","1 Column"
+"2 Columns","2 Columns"
+"3 Columns","3 Columns"
+"-- Please select --","-- Please select --"
+"Gift Wrap","Gift Wrap"
+"BILLING ADDRESS","BILLING ADDRESS"
+"Select a billing address from your address book or enter a new address.","Select a billing address from your address book or enter a new address."
+"Ship to same address","Ship to same address"
+Email,Email
+Address,Address
+"Street Address","Street Address"
+"Street Address %1","Street Address %1"
+"VAT Number","VAT Number"
+"Zip/Postal Code","Zip/Postal Code"
+State/Province,State/Province
+"Please select region, state or province","Please select region, state or province"
+Telephone,Telephone
+Fax,Fax
+Company,Company
+"Save in address book","Save in address book"
+"Create Account","Create Account"
+Password,Password
+"Confirm Password","Confirm Password"
+"SHIPPING ADDRESS","SHIPPING ADDRESS"
+"Select a shipping address from your address book or enter a new address.","Select a shipping address from your address book or enter a new address."
+"Already have an account? Click here to login","Already have an account? Click here to login"
+Login,Login
+"Email Address","Email Address"
+"Forgot your password?","Forgot your password?"
+"Forgotten your password?","Forgotten your password?"
+"Please enter your email below and we will send you a new password.","Please enter your email below and we will send you a new password."
+Submit,Submit
+"Return to Login","Return to Login"
+"Please specify shipping method.","Please specify shipping method."
+"PAYMENT METHOD","PAYMENT METHOD"
+Close,Close
+"Card Verification Number Visual Reference","Card Verification Number Visual Reference"
+"ORDER REVIEW","ORDER REVIEW"
+"Forgot an item?","Forgot an item?"
+"Edit your cart","Edit your cart"
+"Add a gift message","Add a gift message"
+From,From
+Sender,Sender
+To,To
+Receiver,Receiver
+Message,Message
+"Write message","Write message"
+"Sign up for Newsletter","Sign up for Newsletter"
+Comments,Comments
+"Coupon Code:","Coupon Code:"
+"Cancel Coupon","Cancel Coupon"
+"Apply Coupon","Apply Coupon"
+"Product Name","Product Name"
+Qty,Qty
+Subtotal,Subtotal
+"Grand Total: ","Grand Total: "
+"Are you sure you would like to remove this item from the shopping cart?","Are you sure you would like to remove this item from the shopping cart?"
+Minus,Minus
+Plus,Plus
+"Remove item","Remove item"
+"Place Order Now","Place Order Now"
+"Grand Total","Grand Total"
+"Place Order","Place Order"
+"Please wait, processing your order...","Please wait, processing your order..."
+"Please choose","Please choose"
+"I agree with the %1","I agree with the %1"
+ACCEPT,ACCEPT
+"You must accept the ""%1""","You must accept the ""%1"""
+"You have read our Terms and Conditions first.","You have read our Terms and Conditions first."
+"Your credit card will be charged for","Your credit card will be charged for"
+"SHIPPING METHOD","SHIPPING METHOD"
+"Please specify the shipping address to see available options.","Please specify the shipping address to see available options."
+"Incl. Tax","Incl. Tax"
+Item,Item
+Sku,Sku
+"Gift Message for this Order","Gift Message for this Order"
+"Order Comment(s)","Order Comment(s)"
+"Order #%1","Order #%1"
+"Order Date: %1","Order Date: %1"
+"Shipping Address","Shipping Address"
+"Billing Address","Billing Address"
+"Shipping Method","Shipping Method"
+"Payment Method","Payment Method"
+"Items Ordered","Items Ordered"
+SKU,SKU
+Price,Price
+"Time of Delivery","Time of Delivery"
+"Payment Information","Payment Information"
+"No Payment method available.","No Payment method available."
+"Credit Card Information","Credit Card Information"
+"Credit Card Type","Credit Card Type"
+"Credit Card Number","Credit Card Number"
+"Expiration Date","Expiration Date"
+"Card Verification Number","Card Verification Number"
+"What is this?","What is this?"
+"Save this card for future use","Save this card for future use"
+"Switch/Solo/Maestro Only","Switch/Solo/Maestro Only"
+"Issue Number","Issue Number"
+"Start Date","Start Date"
+"Make Check payable to:","Make Check payable to:"
+"Send Check to:","Send Check to:"
+"Sign a billing agreement to streamline further purchases with PayPal.","Sign a billing agreement to streamline further purchases with PayPal."
+Continue,Continue
+"Please do not refresh the page until you complete payment.","Please do not refresh the page until you complete payment."
+"Forgot an Item?","Forgot an Item?"
+"Edit Your Cart","Edit Your Cart"
+"See terms","See terms"
+"You will be redirected to the PayPal website when you place an order.","You will be redirected to the PayPal website when you place an order."
+"Continue to PayPal","Continue to PayPal"
+"What is PayPal?","What is PayPal?"
+"You will be redirected to the PayPal website.","You will be redirected to the PayPal website."
+"Purchase Order Number","Purchase Order Number"
+"Can not initialize PayPal (Braintree)","Can not initialize PayPal (Braintree)"
+"Please try again with another form of payment.","Please try again with another form of payment."
+"One Step Checkout","One Step Checkout"
+"General Configuration","General Configuration"
+"Enable One Step Checkout","Enable One Step Checkout"
+"One Step Checkout Page Title","One Step Checkout Page Title"
+"One Step Checkout Description","One Step Checkout Description"
+"HTML allowed","HTML allowed"
+"Default Country","Default Country"
+"Select default country for Billing address and Shipping address.","Select default country for Billing address and Shipping address."
+"Default Shipping Method","Default Shipping Method"
+"Set default shipping method in the checkout process.","Set default shipping method in the checkout process."
+"Default Payment Method","Default Payment Method"
+"Set default payment method in the checkout process.","Set default payment method in the checkout process."
+"Allow Guest Checkout","Allow Guest Checkout"
+"Allow checking out as a guest. Guest can create an account in the checkout page.","Allow checking out as a guest. Guest can create an account in the checkout page."
+"Allow shipping To Different Address","Allow shipping To Different Address"
+"Allow customers can shipping to a different address from billing address.","Allow customers can shipping to a different address from billing address."
+"Display Configuration","Display Configuration"
+"Show Order Review Section","Show Order Review Section"
+"You can disable Order Review Section. It is enabled by default.","You can disable Order Review Section. It is enabled by default."
+"Show Product Thumbnail Image","Show Product Thumbnail Image"
+"Thumbnail Image Width","Thumbnail Image Width"
+"in pixel, e.g: 75","in pixel, e.g: 75"
+"Thumbnail Image Height","Thumbnail Image Height"
+"Show Edit Cart Link","Show Edit Cart Link"
+"Discount Code Section","Discount Code Section"
+"Show Discount Code box in Checkout page.","Show Discount Code box in Checkout page."
+"""Apply Coupon"" Button","""Apply Coupon"" Button"
+"If ""Disabled"", Coupon code will be validated automatically after enter coupon code.","If ""Disabled"", Coupon code will be validated automatically after enter coupon code."
+"Order Comment","Order Comment"
+"Allow customer comment in order.","Allow customer comment in order."
+"Gift Message","Gift Message"
+"Calculate Method","Calculate Method"
+"To calculate gift wrap fee based on item or order.","To calculate gift wrap fee based on item or order."
+Amount,Amount
+"Enter the amount of gift wrap fee.","Enter the amount of gift wrap fee."
+"Newsletter Checkbox","Newsletter Checkbox"
+"Show Sign up newsletter selection","Show Sign up newsletter selection"
+"Checked Newsletter by default","Checked Newsletter by default"
+"Design Configuration","Design Configuration"
+"Checkout Page Layout","Checkout Page Layout"
+"Popup Effect","Popup Effect"
+Heading,Heading
+"Display number/icon in heading.","Display number/icon in heading."
+"Heading Style","Heading Style"
+"Heading Background Color","Heading Background Color"
+"Custom Heading Background Color","Custom Heading Background Color"
+"Heading Text Color","Heading Text Color"
+"Add jQuery Library","Add jQuery Library"
+"If you have ready jQuery in All pages, you should disable this by choosing No.","If you have ready jQuery in All pages, you should disable this by choosing No."
+"Terms and Conditions Configuration","Terms and Conditions Configuration"
+"Terms and Conditions (TOS)","Terms and Conditions (TOS)"
+"Enable/Disable TOS.","Enable/Disable TOS."
+"Have to read TOS before checking the checkbox","Have to read TOS before checking the checkbox"
+"Customers have to read all TOS before clicking on ACCEPT.","Customers have to read all TOS before clicking on ACCEPT."
+"Checkbox Text","Checkbox Text"
+"Terms and Conditions Title","Terms and Conditions Title"
+"Terms and Conditions Content","Terms and Conditions Content"
+"Allowed HTML. Support CMS Static Block syntax.","Allowed HTML. Support CMS Static Block syntax."
+Payment,Payment
+"We'll send your order confirmation here.","We'll send your order confirmation here."

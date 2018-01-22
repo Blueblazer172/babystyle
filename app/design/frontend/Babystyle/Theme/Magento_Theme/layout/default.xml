@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+	 <head>	
+	   <!-- Font Awsome -->
+		<css src="css/font-awesome.min.css"/> 
+	 </head>
+    <body> 
+		<referenceBlock name="product.info.brand" remove="true"/>
+		<move element="brand_logo" destination="page.main.title"  after="-"  />
+		
+		<referenceContainer name="page.top">
+			<block class="Magento\Theme\Block\Html\Breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+		</referenceContainer>
+			<!-- Header Start -->
+		<referenceBlock name="report.bugs" remove="true"  /> 
+		<referenceBlock  name="catalog.compare.link" remove="true"/>
+		 <referenceBlock name="wish-list-link" remove="true" />
+		<referenceBlock name="page-title-wrapper" remove="true"  />
+		<referenceBlock name="skip_to_content" remove="true"  />
+		<referenceBlock name="welcome" remove="true"  />
+		
+		
+		
+		<referenceContainer name="header.panel">
+			<container name="custom-top-header-left" htmlTag="div" htmlClass="custom-top-header-left" >
+<!-- 				<block class="Magento\Customer\Block\Account\AuthorizationLink" name="authorization-link"
+					   template="account/link/authorization.phtml" before="-"/>
+ -->					   
+			
+				<block class="Magento\Framework\View\Element\Html\Links" name="top.links">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">header links</argument>
+                    </arguments>
+                </block> 
+     
+					
+			</container>
+			<container name="custom-top-header-middle" htmlTag="div" htmlClass="custom-top-header-middle">
+				<!-- <block class="Magento\Cms\Block\Block" name="freeshiping" >
+					<arguments>
+						<argument name="block_id" xsi:type="string">freeshiping</argument>
+						</arguments>
+				</block> -->
+				<block class="Magento\Framework\View\Element\Template" name="popupbox" template="Magento_Theme::html/box-popup.phtml" />
+			</container>
+			<container name="custom-top-header-right" htmlTag="div" htmlClass="custom-top-header-right" >
+				<block class="Magento\Cms\Block\Block" name="livechat" >
+					<arguments>
+						<argument name="block_id" xsi:type="string">livechat</argument>
+					</arguments>
+				</block> 
+			</container>
+		</referenceContainer>
+		<referenceContainer name="header-wrapper">
+			<container name="custom-header-left" htmlTag="div" htmlClass="custom-header-left" >
+				<block class="Magento\Framework\View\Element\Text" name="comment.placeholder">
+				  <arguments>
+					<argument name="text" xsi:type="string"><![CDATA[<!-- -->]]></argument>
+				  </arguments>
+				</block>
+			</container>
+			<container name="custom-header-middle" htmlTag="div" htmlClass="custom-header-middle" >
+					
+			</container>
+			<container name="custom-header-right" htmlTag="div" htmlClass="custom-header-right" >
+				
+			</container>			
+		</referenceContainer>
+		<move element="minicart" destination="custom-header-right" before="store_language"/>
+		<move element="top.search" destination="custom-header-middle" before="-"/>
+			<!-- Header End -->
+		<referenceContainer name="footer-container">
+			<container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer content">
+				<container name="footer-content" as="footer-content" label="Page Footer Content" htmlTag="div" htmlClass="footer-contentinner">
+					<container name="extra.footer.container.left" htmlTag="div" htmlClass="footer-left">
+						<block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe" as="subscribe" before="-" template="subscribe.phtml"/>
+						<block class="Magento\Cms\Block\Block" name="footer-social-links" after="form.subscribe">
+								
+						</block>
+					</container>
+						
+						
+					<container name="extra.footer.container.right" htmlTag="div" htmlClass="footer-right">		 
+						<block class="Magento\Cms\Block\Block" name="footer-custom-links">
+							<arguments>
+								<argument name="block_id" xsi:type="string">footer-social-link</argument>
+							</arguments>
+						</block>
+						<block class="Magento\Framework\View\Element\Template" name="footerlogo" template="Magento_Theme::html/footerlogo.phtml" />
+					</container>
+					
+				</container>				
+			</container>
+		</referenceContainer>		
+			<referenceContainer name="page.wrapper">
+				<container name="extra.footer.bottom" htmlTag="div" htmlClass="extra-footer-bottom" after="footer-container">
+					<container name="extra.footer.container" htmlTag="div" htmlClass="footer-links-bottom">
+						<block class="Magento\Cms\Block\Block" name="extra-footer-block">
+							<arguments>
+								<argument name="block_id" xsi:type="string">footer-links</argument>
+							</arguments>
+						</block>
+					</container>
+					<container name="extra.footer.container.copyright" htmlTag="div" htmlClass="footer-copyright" after="extra.footer.bottom">
+						<block class="Magento\Theme\Block\Html\Footer" name="copyright" template="html/copyright.phtml"/>		
+					</container>
+				</container>
+			</referenceContainer> 
+		<!-- <move element="extra.footer.container.copyright" destination="extra-footer-bottom" after="footer.content"/>  -->
+		<move element="subscribe" destination="footer-top" after="-" />
+		<move element="store_language" destination="custom-header-right" after="minicart"/> 
+		<referenceBlock name="catalog.compare.sidebar" remove="true"  />  
+		<referenceBlock name="wishlist_sidebar" remove="true"  />   
+		
+		<referenceContainer name="sidebar.additional">
+			<block class="Magento\Cms\Block\Block" name="sidebar_content">
+				<arguments>
+					<argument name="block_id" xsi:type="string">sidebar_content</argument>
+				</arguments>
+			</block>
+        </referenceContainer>
+		<referenceContainer name="sidebar.additional">
+            <block class="Ibnab\CategoriesSide\Block\CategorisCollection" name="categoriecollection" template="Ibnab_CategoriesSide::sidebarcategory.phtml" before="catalog.leftnav"/>
+        </referenceContainer>
+		<!-- Listing Page  -->
+		<move element="category.description" destination="content.top" />
+		<!-- <move element="top.links" destination="custom-top-header-left" /> -->
+		<move element="page.main.title" destination="content.top"  before="-"  />
+		 <referenceBlock  name="my-account-link" remove="true"/> 
+	</body>
+</page>

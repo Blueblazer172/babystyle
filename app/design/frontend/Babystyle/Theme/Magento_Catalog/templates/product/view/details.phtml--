@@ -1,0 +1,102 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+ 
+?>
+
+<?php if ($detailedInfoGroup = $block->getGroupChildNames('detailed_info', 'getChildHtml')):?>
+    <div class="product info detailed">
+                <div class="product data items" role="tablist">
+                                            <div class="data item title active" aria-labeledby="tab-label-product.info.description-title" data-role="collapsible" id="tab-label-product.info.description" role="tab" data-collapsible="true" aria-controls="product.info.description" aria-selected="true" aria-expanded="true" tabindex="0">
+                    <a class="data switch" tabindex="-1" data-toggle="switch" href="#product.info.description" id="tab-label-product.info.description-title">
+                        Products Details                    </a>
+                </div>
+                <div class="data item content" id="product.info.description" data-role="content" aria-labelledby="tab-label-product.info.description" role="tabpanel" aria-hidden="false" style="display: block;">
+                    <div class="debugging-hints" style="position: relative;margin: 6px 2px; padding: 18px 2px 2px 2px;">
+
+
+<div class="product attibute description">
+        <div class="value"><p>The Chicco TravelSeat is the perfect travel high chair to fit your busy lifestyle. The TravelSeat folds compactly and comes with a trendy carry bag. Its fashionable, Italian-woven fabric seat can be removed and machine-washed to keep your Chicco TravelSeat looking sharp. The 3-point safety harness and quick-grip table clamping will leave you with no worries about your child's safety, and the travel seat will fit any table top with a table skirt up to 5.5in thick, so you can use your seat almost anywhere!</p>
+<ul>
+<li>For use by children 6 to 36 months, up to 37 lbs.</li>
+<li>Compact fold and deluxe carry bag for easy travel.</li>
+<li>Quick-grip table clamping and 3-point harness to ensure quick and secure attachment; rubberized arms that firmly grip tables but won't leave marks or pinch fingers.</li>
+<li>Thickly padded seat is removable and machine-washable for easy clean up.</li>
+<li>Fits table tops with a table skirt up to 5.5inin thick.</li>
+</ul></div>
+</div>
+
+
+
+
+</div>               </div>
+                                            <div class="data item title" aria-labeledby="tab-label-shippinginfo-title" data-role="collapsible" id="tab-label-shippinginfo" role="tab" data-collapsible="true" aria-controls="shippinginfo" aria-selected="false" aria-expanded="false" tabindex="0">
+                    <a class="data switch" tabindex="-1" data-toggle="switch" href="#shippinginfo" id="tab-label-shippinginfo-title">
+                        Shipping &amp; Returns                    </a>
+                </div>
+                <div class="data item content" id="shippinginfo" data-role="content" aria-labelledby="tab-label-shippinginfo" role="tabpanel" aria-hidden="true" style="display: none;">
+                    <div class="debugging-hints" style="position: relative;  margin: 6px 2px; padding: 18px 2px 2px 2px;">
+
+
+<p>This product is eligible for Free Shipping.&nbsp;<br>Generally ships within 3 business days.<br>This item can be returned within 14 days after the delivery date.&nbsp;<br>Learn more about our&nbsp;<a title="Return Policy" href="https://www.babystyle.ca/about-us#answer6" target="_blank">Return Policy</a></p>
+</div>               </div>
+                                            <div class="data item title" aria-labeledby="tab-label-brand_desc-title" data-role="collapsible" id="tab-label-brand_desc" role="tab" data-collapsible="true" aria-controls="brand_desc" aria-selected="false" aria-expanded="false" tabindex="0">
+                    <a class="data switch" tabindex="-1" data-toggle="switch" href="#brand_desc" id="tab-label-brand_desc-title">
+                        Brand Description                    </a>
+                </div>
+                <div class="data item content" id="brand_desc" data-role="content" aria-labelledby="tab-label-brand_desc" role="tabpanel" aria-hidden="true" style="display: none;">
+                    <div class="debugging-hints" style="position: relative; margin: 6px 2px; padding: 18px 2px 2px 2px;">
+
+
+<p>Chicco is a holistic, innovative lifestyle company that encompasses everything you need to care for all generations of a family. This brand is one of the leaders in car seats, strollers, travel systems, highchairs, playpens and other baby gear.</p>
+</div>               </div>
+                                            <div class="data item title" aria-labeledby="tab-label-qa-title" data-role="collapsible" id="tab-label-qa" role="tab" data-collapsible="true" aria-controls="qa" aria-selected="false" aria-expanded="false" tabindex="0">
+                    <a class="data switch" tabindex="-1" data-toggle="switch" href="#qa" id="tab-label-qa-title">
+                        Q &amp; A                    </a>
+                </div>
+                <div class="data item content" id="qa" data-role="content" aria-labelledby="tab-label-qa" role="tabpanel" aria-hidden="true" style="display: none;">
+                    <div class="debugging-hints" style="position: relative; margin: 6px 2px; padding: 18px 2px 2px 2px;">
+
+<p>Another great baby product</p>
+
+</div>               </div>
+                    </div>
+    </div>
+<?php endif; ?>
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+<script>
+function cutomToggle(id)
+{
+	if ( jQuery( "."+id ).is( ":hidden" ) ) {
+		jQuery( "."+id ).slideDown( "fast" );
+		jQuery( ".toggle"+id ).removeClass( "data" );
+		jQuery( ".toggle"+id ).addClass( "data-minus" );
+	} else {
+		jQuery( "."+id ).slideUp("fast");
+		jQuery( ".toggle"+id ).removeClass( "data-minus");
+		jQuery( ".toggle"+id ).addClass( "data" );
+		
+	}
+}
+require([ 'jquery', 'jquery/ui'], function(jQuery){
+	jQuery(document).ready(function(){
+		//jQuery( ".productcontent").hide();
+	});
+});
+</script>

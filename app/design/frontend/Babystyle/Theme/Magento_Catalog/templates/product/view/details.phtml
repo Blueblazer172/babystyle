@@ -1,0 +1,72 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+ 
+?>
+<?php if ($detailedInfoGroup = $block->getGroupChildNames('detailed_info', 'getChildHtml')):?>
+    <div class="product info detailed">
+        <?php $layout = $block->getLayout(); ?>
+        <div class="product data items" >
+            <?php foreach ($detailedInfoGroup as $name):?>
+                <?php
+                    $html = $layout->renderElement($name);
+                    if (!trim($html)) {
+                        continue;
+                    }
+                    $alias = $layout->getElementAlias($name);
+                    $label = $block->getChildData($alias, 'title');
+                ?>
+                <div class="desc-tabs" >
+                    <a onclick="cutomToggle('<?php /* @escapeNotVerified */ echo preg_replace('/[^A-Za-z0-9\-]/', '', $alias); ?>')" class="data switch"
+                       tabindex="-1"
+                       href="javascript:void(0)"
+                       id="tab-label-<?php /* @escapeNotVerified */ echo $alias;?>-title">
+                        <?php /* @escapeNotVerified */ echo $label; ?>
+                    </a>
+                </div>
+                <div style="display: none" class="productcontent content <?php /* @escapeNotVerified */ echo preg_replace('/[^A-Za-z0-9\-]/', '', $alias); ?>" id="<?php /* @escapeNotVerified */ echo $alias; ?>" >
+                    <?php /* @escapeNotVerified */ echo $html; ?>
+               </div>
+            <?php endforeach;?>
+        </div>
+    </div>
+<?php endif; ?>
+
+
+<script>
+function cutomToggle(id)
+{
+	jQuery(".desc-tabs").removeClass( "active" ); 
+	
+	if(jQuery(window).width() <= 767)
+	{
+		if ( jQuery( "."+id ).is( ":hidden" ) ) {
+			jQuery( "."+id ).slideDown( "fast" );
+			jQuery("."+id).prev().addClass( "active" );
+		} else {
+			jQuery( "."+id ).slideUp("fast");
+			jQuery("."+id).prev().removeClass( "active" );
+		}
+	}
+	else{
+		jQuery( ".productcontent" ).css( "display","none" );
+		if ( jQuery( "."+id ).is( ":hidden" ) ) {
+			jQuery( "."+id ).css( "display","block" );
+			jQuery("."+id).prev().addClass( "active" );
+		} else {
+			jQuery( "."+id ).css( "display","none" );
+			jQuery("."+id).prev().removeClass( "active" );
+		}
+	}
+}
+require([ 'jquery', 'jquery/ui'], function(jQuery){
+	jQuery(document).ready(function(){
+		jQuery( ".productcontent:first" ).css( "display", "block" );
+		jQuery( ".desc-tabs:first" ).addClass( "active" );
+	});
+});
+</script>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Url\SecurityInfo">
+        <arguments>
+            <argument name="secureUrlList" xsi:type="array">
+                <item name="secure_checkout_index" xsi:type="string">/onestepcheckout</item>
+                <item name="secure_checkout_ajax" xsi:type="string">/onestepcheckout/ajax</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Checkout\Block\Cart\Sidebar">
+        <plugin name="secureCheckoutCartSidebar" type="Mageplaza\Osc\Block\Plugin\Checkout\Cart\Sidebar"/>
+    </type>
+    <type name="Magento\Checkout\Block\Onepage\Link">
+        <plugin name="secureCheckoutOnepageLink" type="Mageplaza\Osc\Block\Plugin\Checkout\Onepage\Link"/>
+    </type>
+    <!--Layout processor-->
+    <type name="Mageplaza\Osc\Block\Container">
+        <arguments>
+            <argument name="layoutProcessors" xsi:type="array">
+                <item name="paymentMethods" xsi:type="object">Mageplaza\Osc\Block\Checkout\LayoutProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

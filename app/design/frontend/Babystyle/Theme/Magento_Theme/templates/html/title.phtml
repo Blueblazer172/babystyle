@@ -1,0 +1,63 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var $block \Magento\Theme\Block\Html\Title
+ */
+$cssClass = $block->getCssClass() ? ' ' . $block->getCssClass() : '';
+$title = '';
+if (trim($block->getPageHeading())) {
+    $title = '<span class="base" data-ui-id="page-title-wrapper" ' .  $block->getAddBaseAttribute() . '>'
+        . $block->escapeHtml($block->getPageHeading()) . '</span>';
+}
+?>
+
+<?php 
+   $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+   $category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
+   $request = $objectManager->get('Magento\Framework\App\Action\Context')->getRequest();
+   
+   //How to get controllerName, actionName, routeName, moduleName
+ //echo $request->getFullActionName();
+
+  
+?>
+<?php if (is_object($category) && !empty($category->getCategoryCustomTitle()) && $request->getFullActionName()!='catalog_product_view'){ 
+
+?>
+    
+	<div class="page-title-wrapper<?php /* @escapeNotVerified */ echo $cssClass; ?>">
+		<h1 class="page-title"
+			<?php if ($block->getId()): ?> id="<?php /* @escapeNotVerified */ echo $block->getId();?>" <?php endif; ?>
+			<?php if ($block->getAddBaseAttributeAria()): ?>
+				aria-labelledby="<?php /* @escapeNotVerified */ echo $block->getAddBaseAttributeAria(); ?>"
+			<?php endif; ?>>
+			<?php /* @escapeNotVerified */ echo $this->helper('Magento\Catalog\Helper\Output')->categoryAttribute($block->getCurrentCategory(), $category->getCategoryCustomTitle(), 'category_custom_title') ?>
+		</h1>
+		<?php echo $block->getChildHtml(); ?>
+	</div>
+<?php }elseif($request->getFullActionName()=='brand_index_viewbrand'){ ?>
+	<!--<div class="page-title-wrapper<?php /* @escapeNotVerified */ //echo $cssClass; ?>">
+		<div class="brand_title_cls"><?php /* @escapeNotVerified */ //echo $title ?></div>
+		<?php //echo $block->getChildHtml(); ?>
+	</div>-->
+<?php }else{ ?>
+
+<?php if ($title): ?>
+<div class="page-title-wrapper<?php /* @escapeNotVerified */ echo $cssClass; ?>">
+    <h1 class="page-title"
+        <?php if ($block->getId()): ?> id="<?php /* @escapeNotVerified */ echo $block->getId();?>" <?php endif; ?>
+        <?php if ($block->getAddBaseAttributeAria()): ?>
+            aria-labelledby="<?php /* @escapeNotVerified */ echo $block->getAddBaseAttributeAria(); ?>"
+        <?php endif; ?>>
+        <?php /* @escapeNotVerified */ echo $title ?>
+    </h1>
+    <?php echo $block->getChildHtml(); ?>
+</div>
+<?php endif; ?>
+<?php } ?>

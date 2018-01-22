@@ -1,0 +1,83 @@
+/*
+* @Author: zerokool - Nguyen Huu Tien
+* @Date:   2015-07-19 22:26:44
+* @Last Modified by:   zero
+* @Last Modified time: 2015-07-29 11:37:23
+*/
+.jquery-slider-wrapper img {
+    width: 100%;
+    height: 100%;
+}
+.jquery-slider-wrapper .jquery-slider-slide {
+	height: 100%;
+}
+.magestore-bannerslider-standard img {
+	cursor: pointer;
+}
+.magestore-bannerslide-flex-slider .flex-control-nav img{
+	width: 300px;
+	height: 150px;
+}
+
+.flexslider-carousel .slides img{
+	height: 131px;
+}
+
+/* .flexslider-content-image .slides img{
+    height: 650px;
+} */
+
+.magestore-bannerslider-standard {
+	width: 100%;
+}
+#arabic_store .magestore-bannerslider-standard {
+	width: 100%; overflow:hidden;
+}
+
+@media only screen and (max-width: 768px) {
+    .magestore-bannerslider-standard {
+    	width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    .magestore-bannerslider-standard {width: 100%;  }
+	.flexslider .slides img{min-height:150px;}
+	.flex-direction-nav a {width: 30px; height: 30px; line-height: 30px;margin: -20px 0 0;}
+	.flex-direction-nav .flex-prev:before{	
+	
+	font-size:14px;
+	width:30px;
+	height:30px;
+	line-height:30px;
+	color:#fff;
+	position:absolute;
+	font-family: 'FontAwesome';
+	left:5px;
+}
+.flex-direction-nav .flex-next:before{	
+	content:"\f105";
+	background:#333;
+	font-size:14px;
+	width:30px;
+	height:30px;
+	line-height:30px;
+	color:#fff;
+	position:absolute;
+	font-family: 'FontAwesome';
+	right:5px;
+}
+.flexslider:hover .flex-next {right: 20px;}
+.flexslider:hover .flex-prev {left: 20px;}
+
+}
+
+/*.magestore-bannerslide-flex-slider ul.slides {
+	height: 100%;
+}
+.magestore-bannerslide-flex-slider ul.slides img {
+	width: 100%;
+	height: 100%;
+}*/
+
+ 

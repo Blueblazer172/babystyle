@@ -1,0 +1,10 @@
+<?php //echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('q_a')->toHtml(); ?>
+<?php 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$_product = $objectManager->get('Magento\Framework\Registry')->registry('current_product'); 
+$product_id = $_product->getId();
+$_product = $objectManager->get('Magento\Catalog\Model\Product')->load($product_id);
+echo $_product->getData('q_a');
+
+?>
+

@@ -1,0 +1,35 @@
+<div class="freeship">
+	<a href="javascript:void(0)"><img src="<?php echo $this->getViewFileUrl('images/ship-flag.png'); ?>" alt="">
+	<span><?php  /* @escapeNotVerified */  echo __('FREE SHIPPING OVER $49') ?></span></a>
+</div>
+
+
+
+
+<script type="text/javascript">
+require(["jquery"], function($){
+$(document).ready(function(){
+ 
+$("#popup-mpdal").hide();	
+
+$('.freeship').click(function(){
+  require(['jquery','Magento_Ui/js/modal/modal'],function($,modal) {
+           var options = {
+               type: 'popup',
+               responsive: true,
+               innerScroll: true,
+               title: 'Free Shipping - Orders $49 or more',
+               //buttons: [{text: $.mage.__('Close'),class: '',click: function () { this.closeModal();}}]
+			   buttons: false
+           };
+
+           var popup = modal(options, $('#popup-mpdal'));
+           $('#popup-mpdal').modal('openModal');
+       }
+   );
+});
+
+ 
+});  
+});  
+</script>

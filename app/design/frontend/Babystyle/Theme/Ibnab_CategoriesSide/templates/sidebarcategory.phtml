@@ -1,0 +1,52 @@
+<?php
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$request = $objectManager->get('Magento\Framework\App\Action\Context')->getRequest(); 
+
+if ($request->getFullActionName() == 'catalog_category_view'){ 
+
+
+$categories = $this->getStoreCategories(true,false,true);
+$categoryHelper = $this->getCategoryHelper();
+$current = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
+$parent = $current->getParentCategory()->getName();
+
+
+?>
+<?php
+foreach($categories as $category):
+		
+     if (!$category->getIsActive()) {
+        continue;
+     }
+
+?>
+<?php if($category->getName() == $parent):?>
+
+<?php  
+
+if($childrenCategories = $this->getChildCategories($category)):
+?>
+<div class="child_cat">
+<ul class="parent_childs">
+<?php
+foreach($childrenCategories as $childrenCategory):
+     if (!$childrenCategory->getIsActive()) {
+        continue;
+     }
+?>
+<li><span class="<?php if($current->getName() == $childrenCategory->getName()){echo "active"; } ?>"><a href="<?php echo $categoryHelper->getCategoryUrl($childrenCategory) ?>"><?php echo $childrenCategory->getName() ?></a></span></li>
+<?php
+endforeach;
+?>
+</ul>
+</div>
+<?php
+endif;
+endif;
+endforeach;
+}
+?>
+
+
+

@@ -1,0 +1,202 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ 
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance(); 
+?>
+<div class="checkout-success">
+
+   
+    <?php // echo $block->getAdditionalInfoHtml() ?>
+
+   <!-- <div class="actions-toolbar">
+        <div class="primary">
+            <a class="action primary continue" href="<?php /* @escapeNotVerified */ //echo $block->getUrl() ?>"><span><?php /* @escapeNotVerified */ //echo __('Continue Shopping') ?></span></a>
+        </div>
+    </div>-->
+	
+<div class="page-main">
+<div class="success_main">
+<div class="page_title">
+<h1>Thank You</h1>
+</div>
+<div id="print_content">
+	<div class="success_left">
+		<h2 class="sub_title">You&rsquo;re all set</h2>
+		 <?php if ($block->getOrderId()):?>
+				<?php if ($block->getCanViewOrder()) :?>
+					 <p><?php echo __('Your order #  %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))); echo __(' was received. Confirmation was sent to your email address.'); ?> </p>
+				<?php  else :?>
+					<p><?php echo __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?></p>
+				<?php endif;?>
+					<p><?php /* @escapeNotVerified */ echo __('') ?></p>
+			<?php endif;?>
+			
+		<a href="<?php echo $this->getUrl(); ?>" ><?php echo __('Continue Shopping'); ?></a>
+
+		<span class="hope_soon">Hope to see you again soon...</span>
+	</div>
+	<div class="success_right"><img src="<?php echo $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore()->getBaseUrl()?>pub/media/wysiwyg/success-img.png" alt="" /></div>
+	<div class="clear">&nbsp;</div>
+
+	<button class="print_o" onclick="printDiv('print_content')">Print Order</button>
+
+	<script>
+	function printDiv(divId) {
+		 var printContents = document.getElementById(divId).innerHTML;
+		 var originalContents = document.body.innerHTML;
+
+		 document.body.innerHTML = printContents;
+
+		 window.print();
+
+		 document.body.innerHTML = originalContents;
+	}
+	</script>
+	<style>
+	@media print {  button.print_o { display: none; }	}
+	</style>
+  
+<div class="order_info">
+<?php
+		
+		$order = $objectManager->get('Magento\Sales\Model\Order')->loadByIncrementId($block->getOrderId()); 
+		$renderer = $objectManager->get('Magento\Sales\Model\Order\Address\Renderer');	
+		$billingInfo = $renderer->format($order->getBillingAddress(), 'html'); 
+		$shippingInfo = $renderer->format($order->getShippingAddress(), 'html');
+
+		?>
+		 
+		<?php if ($billingInfo != $shippingInfo) { ?>
+		<div class="left">
+			<div class="address_su bill" >
+				<h4><?php echo '<span>' . __('Billing Information') . ':</span> '; ?></h4>
+				<?php echo $billingInfo; ?>
+			</div>			 
+			<div class="address_su ship" >
+				<h4><?php echo '<span>' . __('Shipping Information') . ':</span> '; ?></h4>
+				<?php echo $shippingInfo; ?>
+			</div>
+		</div>
+		 <?php } else { ?>
+			 <div class="left">
+				<div class="address_su bill" >
+					<h4><?php echo '<span>' . __('Billing  Address') . ':</span> '; ?></h4>
+					<?php echo $billingInfo; ?> 
+				</div>
+			</div>
+		<?php } ?>
+		 <div class="right">
+			
+			<div class="shipping_method">
+				<h4><span><?php echo __('Shipping Method'); ?></span></h4>
+				<?php echo $order->getData('shipping_description'); ?>
+			</div>
+			
+			<div class="payMent_method">
+				<h4><span><?php echo __('Payment Method'); ?></span></h4>
+				<?php echo $order->getPayment()->getMethodInstance()->getTitle(); ?>
+			</div>
+		</div>
+		
+		<div class="itm_details">
+		   <?php $items = $order->getAllItems();
+			$priceHelper = $objectManager->create('Magento\Framework\Pricing\Helper\Data'); ?>	
+		</div>
+		
+		<table class="data table table-order-items" id="my-orders-table" summary="Items Ordered">
+        <caption class="table-caption">Items Ordered</caption>
+        <thead>
+            <tr>
+                <th class="col name">Product Name</th>
+                <th class="col sku">SKU</th>
+                <th class="col price">Price</th>
+                <th class="col qty">Qty</th>
+                <th class="col subtotal">Subtotal</th>
+            </tr>
+        </thead>
+      <tbody>
+	  <?php $count = 1; foreach($items as $i):  ?>
+	  <?php $_product = $objectManager->create('Magento\Catalog\Model\Product')->load($i->getProductId()); ?>
+		<tr id="order-item-row-1832">
+			<td class="col name" data-th="Product Name">
+				<strong class="product name product-item-name"><?php echo $_product->getName(); ?></strong>
+			</td>
+			<td class="col sku" data-th="SKU"><?php echo $_product->getSku();	?></td>
+			<td class="col price" data-th="Price">
+				<span class="price-excluding-tax" data-label="Excl. Tax">
+				<span class="cart-price">
+				<span class="price"><?php echo '$'.$priceHelper->currency($_product->getPrice(), true, false); ?></span></span>
+				</span>
+			</td>
+			<td class="col qty" data-th="Qty">
+			<ul class="items-qty">
+				<li class="item">
+				<span class="title">Ordered :</span>
+				<span class="content"><?php echo (int)$order->getData('total_qty_ordered'); ?></span>
+				</li>
+			</ul>
+			</td>
+			<td class="col subtotal" data-th="Subtotal">
+				<span class="price-excluding-tax" data-label="Excl. Tax">
+				<span class="cart-price">
+				<span class="price"><?php echo '$'.$priceHelper->currency($_product->getPrice(), true, false); ?></span></span>
+				</span>
+			</td>
+		</tr>
+		<?php $count++; endforeach; ?>
+        </tbody>
+		<tfoot>
+			<tr class="subtotal">
+				<th colspan="4" class="mark" scope="row">Subtotal</th>
+				<td class="amount" data-th="Subtotal">
+				<span class="price"><?php echo '$'.$priceHelper->currency($order->getData('subtotal'), true, false); ?></span>
+				</td>
+			</tr>
+			<tr class="shipping">
+				<th colspan="4" class="mark" scope="row">Shipping &amp; Handling</th>
+				<td class="amount" data-th="Shipping &amp; Handling">
+				<span class="price"><?php echo '$'.$priceHelper->currency($order->getData('base_shipping_amount'), true, false); ?></span>
+				</td>
+			</tr>
+
+			<tr class="totals-tax">
+				<th colspan="4" class="mark" scope="row">Tax </th>
+				<td class="amount" data-th="Tax"><?php echo '$'.$priceHelper->currency($order->getData('tax_amount'), true, false); ?></span>
+				</td>
+			</tr>
+			<tr class="grand_total">
+				<th colspan="4" class="mark" scope="row">
+				<strong>Grand Total</strong>
+				</th>
+				<td class="amount" data-th="Grand Total">
+				<strong><span class="price"><?php echo '$'.$priceHelper->currency($order->getGrandTotal(), true, false);	?></span></strong>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+	
+	</div>	
+</div>
+
+
+<div class="clear">&nbsp;</div>
+<div class="social_media_success"><span>IT WOULD BE AWESOME IF YOU COULD SHARE ABOUT US</span>
+<ul>
+<li><a href="https://www.facebook.com/babystylecanada" target="_blank"><img src="<?php echo $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore()->getBaseUrl()?>pub/media/wysiwyg/facebook.jpg" alt="" /></a></li>
+<li><a href="#" target="_blank"><img src="<?php echo $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore()->getBaseUrl()?>pub/media/wysiwyg/twitter.jpg" alt="" /></a></li>
+<li><a href="https://www.pinterest.com/babystyleCA/" target="_blank"><img src="<?php echo $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore()->getBaseUrl()?>pub/media/wysiwyg/pinterest.jpg" alt="" /></a></li>
+<li><a href="https://plus.google.com/+BabystyleCa" target="_blank"><img src="<?php echo $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore()->getBaseUrl()?>pub/media/wysiwyg/google-plus.jpg" alt="" /></a></li>
+<li><a href="#"><img src="<?php echo $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore()->getBaseUrl()?>pub/media/wysiwyg/instagram.jpg" alt="" /></a></li>
+<li><a href="#"><img src="<?php echo $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore()->getBaseUrl()?>pub/media/wysiwyg/youtube.jpg" alt="" /></a></li>
+</ul>
+</div>
+</div>
+</div>

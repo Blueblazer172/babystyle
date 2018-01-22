@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+  <menu>
+    <add id="Mageplaza_Osc::osc" resource="Mageplaza_Osc::osc" module="Mageplaza_Osc" title="One Step Checkout" sortOrder="10" parent="Mageplaza_Core::menu"/>
+    <add id="Mageplaza_Osc::configuration" title="Configuration" module="Mageplaza_Osc" sortOrder="10" action="adminhtml/system_config/edit/section/osc" resource="Mageplaza_Osc::configuration" parent="Mageplaza_Osc::osc"/>
+  </menu>
+</config>

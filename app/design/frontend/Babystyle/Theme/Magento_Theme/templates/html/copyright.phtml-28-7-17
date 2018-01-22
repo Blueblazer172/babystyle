@@ -1,0 +1,49 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+<div class="copyright-cls">
+<small class="copyright">
+    <span><?php /* @escapeNotVerified */ echo $block->getCopyright() ?></span>
+</small>
+</div>
+
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+$.src='//v2.zopim.com/?lGw9bBXgybnBtTKUpmTilukOgTsZx0in';z.t=+new Date;$.
+type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+</script>
+
+
+<a href="#" id="scrolltotop" title="Back to top">Back to top</a> 
+<script type="text/javascript"> 
+require(['jquery', 'jquery/ui'], function($){ 
+	$(document).ready(function(){
+		$(window).scroll(function(){
+			if ($(this).scrollTop() < 800) {
+				$('#scrolltotop') .fadeOut();
+			} else {
+				$('#scrolltotop') .fadeIn();
+			}
+		});
+
+		$('#scrolltotop').on('click', function(){
+		$('html, body').animate({scrollTop:0}, 'fast');
+		return false;
+		}); 
+	}); 
+	
+	/* $(window).on('load resize',function(){
+		if($(window).width() < 767){
+			$('#msearchbox').css("display", "none");
+		}else {
+			$('#msearchbox').css("display", "block");	
+		}
+	}); */
+}); 
+</script>

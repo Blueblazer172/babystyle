@@ -1,0 +1,72 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$request = $objectManager->get('Magento\Framework\App\Action\Context')->getRequest(); 
+
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$mediaurl =$storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+
+if ($request->getFullActionName() == 'catalog_category_view'){ 
+
+$categories = $this->getStoreCategories(true,false,true);
+$categoryHelper = $this->getCategoryHelper();
+$current = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
+$current_cat = $current->getName(); 
+
+?>
+<?php
+foreach($categories as $category):
+		
+     if (!$category->getIsActive()) {
+        continue;
+     }
+
+?>
+<?php if($category->getName() == $current_cat):?>
+
+<?php  
+
+if($childrenCategories = $this->getChildCategories($category)):
+?>
+
+<ul class="child_cats">
+<?php
+foreach($childrenCategories as $childrenCategory):
+     if (!$childrenCategory->getIsActive()) {
+        continue;
+     }
+?>
+<li>
+  <span class="cat-thumb-img">
+	  <?php $categoryobj = $objectManager->create('Magento\Catalog\Model\CategoryFactory');
+			$_category = $categoryobj->create()->load($childrenCategory->getEntityId()); ?>
+	<?php if($_imgUrl = $_category->getData('thumbnail_image')){?>
+	  <a href="<?php echo $categoryHelper->getCategoryUrl($childrenCategory) ?>">
+		  <img src="<?php echo  $mediaurl.'catalog/category/'.$_imgUrl ; ?>" alt="<?php echo $category->getName() ?>"  ></a>
+			<?php } else{ ?>
+		  <a href="<?php echo $categoryHelper->getCategoryUrl($childrenCategory) ?>">
+			<img src="<?php echo $this->getViewFileUrl('images/cat-placeholder.jpg'); ?>" alt="<?php echo $category->getName() ?>"  ></a>	
+			<?php } ?>
+	
+	</span>
+	<span class="<?php if($current->getName() == $childrenCategory->getName()){echo "active"; } ?> cat-thumb-link">
+		<a href="<?php echo $categoryHelper->getCategoryUrl($childrenCategory) ?>"><?php echo $childrenCategory->getName() ?></a>
+	</span>
+</li>
+
+<?php
+endforeach;
+?>
+</ul>
+
+<?php
+endif;
+endif;
+endforeach;
+?>
+
+<div class="category-description category-description-bottom catlistpage">
+<?php echo $current_cat = $current->getDescription(); ?>
+</div>
+
+<?php } ?>
+

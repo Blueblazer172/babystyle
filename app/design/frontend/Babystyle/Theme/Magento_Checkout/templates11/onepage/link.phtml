@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php if ($block->isPossibleOnepageCheckout()):?>
+    <?php /* <button type="button"
+            data-role="proceed-to-checkout"
+            title="<?php echo __('Proceed to Checkout') ?>"
+            data-mage-init='{"Magento_Checkout/js/proceed-to-checkout":{"checkoutUrl":"<?php echo $block->getCheckoutUrl(); ?>"}}'
+            class="action primary checkout<?php echo($block->isDisabled()) ? ' disabled' : ''; ?>"
+            <?php if ($block->isDisabled()):?>disabled="disabled"<?php endif; ?>>
+        <span><?php echo __('Proceed to Checkout') ?></span>
+    </button> */ ?>
+	<a class="action primary checkout" href="<?php echo $block->getCheckoutUrl(); ?>" ><?php echo __('Proceed to Checkout') ?></a>
+<?php endif?>
+<style>
+.cart-container .checkout-methods-items .action.primary {
+    width: 100%;
+    color: #fff !important;
+}
+.cart-container .checkout-methods-items .action.primary:hover{
+color:#fff!important;
+}
+</style>

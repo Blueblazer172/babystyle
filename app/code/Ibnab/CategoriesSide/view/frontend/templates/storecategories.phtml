@@ -1,0 +1,48 @@
+<?php
+$categories = $this->getStoreCategories(true,false,true);
+$categoryHelper = $this->getCategoryHelper();
+?>
+<ul>
+<?php
+foreach($categories as $category):
+		
+     if (!$category->getIsActive()) {
+        continue;
+     }
+
+?>
+<li class="main-cat">
+	<a href="<?php echo $categoryHelper->getCategoryUrl($category) ?>">
+	  <span class="cat-thumb-img">
+	  <?php if($this->getImageUrl($category)){?>
+	  <img src="<?php echo $this->getImageUrl($category) ?>" alt="<?php echo $category->getName() ?>" >
+		<?php } else{ ?>
+		<img src="<?php echo $this->getViewFileUrl('images/catimg.jpg'); ?>" alt="<?php echo $category->getName() ?>" >
+		<?php } ?>
+		</span>
+		<span class="cat-name"><?php echo $category->getName() ?></span>
+	</a>
+</li>
+<?php  
+/*  if($childrenCategories = $this->getChildCategories($category)):
+?>
+<ul>
+<?php
+foreach($childrenCategories as $childrenCategory):
+     if (!$childrenCategory->getIsActive()) {
+        continue;
+     }
+?>
+<li><a href="<?php echo $categoryHelper->getCategoryUrl($childrenCategory) ?>"><?php echo $childrenCategory->getName() ?></a></li>
+<?php
+endforeach;
+?>
+</ul>
+<?php
+endif;  */
+endforeach;
+?>
+</ul>
+<!-- /* <h1>OR</h1> */ -->
+<?php //echo $this->getHtml() ?>
+
