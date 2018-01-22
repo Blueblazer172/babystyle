@@ -1,0 +1,32 @@
+<?php
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Search\Block\Result $block */
+
+$indexes = $block->getIndexes();
+?>
+
+    <ul class="search__result-tabs">
+        <?php foreach ($indexes as $index): ?>
+            <?php $collection = $index->getIndexInstance()->getSearchCollection(); ?>
+
+            <?php if ($collection->getSize()): ?>
+                <?php if ($index->getCode() == $block->getCurrentIndex()->getCode()
+                    && $index->getStoreId() == $block->getCurrentIndex()->getStoreId()
+                ): ?>
+                    <li>
+                        <a class="active" href="#">
+                            <?= __($index->getTitle()) ?>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li>
+                        <a href="<?= $block->getIndexUrl($index) ?>">
+                            <?= __('%1 (%2)', $index->getTitle(), $collection->getSize()) ?>
+                        </a>
+                    </li>
+                <?php endif ?>
+            <?php endif ?>
+        <?php endforeach ?>
+    </ul>
+
+<?= $block->getCurrentContent() ?>
