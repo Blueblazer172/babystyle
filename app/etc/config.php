@@ -142,6 +142,8 @@ return array (
     'Ves_Megamenu' => 0,
     'Ves_Setup' => 1,
     'WeltPixel_Backend' => 1,
-    'WeltPixel_GoogleCards' => 1,
+    'WeltPixel_GoogleCards' => 0,
   ),
 );
+
+?>
