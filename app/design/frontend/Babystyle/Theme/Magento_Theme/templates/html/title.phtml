@@ -1,4 +1,20 @@
 <?php
+
+$obj = \Magento\Framework\App\ObjectManager::getInstance();
+$productData = $obj->get('Magento\Framework\Registry')->registry('current_product');
+$resource = $obj->create('\Magento\Framework\App\ResourceConnection');
+$brandsObj = $obj->create('Magestore\Shopbybrand\Model\BrandFactory')->create();
+$brandCollections = $brandsObj->getCollection()->addFieldToSelect(array('brand_name','url_key'));
+$brandCollections->getSelect()->join(['brand_products' => $resource->getTableName('ms_brand_products')],
+'brand_products.brand_id=main_table.id', 'brand_id')->where("brand_products.product_id='".$productData->getId()."'");
+//$brandCollections->getSelect();
+$storeManager = $obj->get('\Magento\Store\Model\StoreManagerInterface');
+
+
+?>
+
+
+<?php
 /**
  * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -14,8 +30,16 @@ $title = '';
 if (trim($block->getPageHeading())) {
     $title = '<span class="base" data-ui-id="page-title-wrapper" ' .  $block->getAddBaseAttribute() . '>'
         . $block->escapeHtml($block->getPageHeading()) . '</span>';
+
+foreach($brandCollections as $brand){
+	$title = $title.'<br/><span class="by_brand"><span><a href="'.$storeManager->getStore()->getBaseUrl().$brand->getData('url_key').'" target="_blank">'. __("By ").$brand->getData('brand_name').'</span></span>';
+  break;
 }
+
+}
+
 ?>
+
 
 <?php 
    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();

@@ -124,6 +124,25 @@ $mediaurl =$storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface
                         </span>
                         <!--</strong>-->
 						<!--<strong class="by_brand">-->
+						<?php
+
+//$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+ 
+$_resource = $obj->create('\Magento\Framework\App\ResourceConnection');
+$brandsObj = $obj->create('Magestore\Shopbybrand\Model\BrandFactory')->create();
+$brandCollections = $brandsObj->getCollection()->addFieldToSelect(array('brand_name','url_key'));
+$brandCollections->getSelect()->join(['brand_products' => $_resource->getTableName('ms_brand_products')],
+'brand_products.brand_id=main_table.id', 'brand_id')->where("brand_products.product_id='".$_product->getId()."'");
+//$brandCollections->getSelect();
+$storeManager = $obj->get('\Magento\Store\Model\StoreManagerInterface');
+
+foreach($brandCollections as $brand){ ?>
+	<span class="by_brand">
+			<span><a href="<?php echo $storeManager->getStore()->getBaseUrl().$brand->getData('url_key');?>" target="_blank"><?php echo __("By ").$brand->getData('brand_name'); ?></span>
+	</span>
+<?php } ?>
+
+						<?php /* ?>
 						<span class="by_brand">
 							<?php $brandCode =$_product->getData('manufacturer'); 
 								  $attr = $_product->getResource()->getAttribute('manufacturer');
@@ -131,6 +150,7 @@ $mediaurl =$storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface
 									<span><?php echo __("by ").$attr->getSource()->getOptionText($brandCode);; ?></span>
 							<?php }	?>							
 						</span>
+						<?php */ ?>
 						<!--</strong>-->
                         <?php // echo $block->getReviewsSummaryHtml($_product, $templateType); ?>
                         <?php echo $block->getProductDetailsHtml($_product); ?>

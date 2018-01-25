@@ -35,6 +35,9 @@ class Toolbar
         \Magento\Catalog\Block\Product\ProductList\Toolbar $toolbar,
         $collection
     ){
+		if (count($collection->getItems()) > 0) {
+           return [$collection];
+       }
         /** @var \Magestore\Shopbybrand\Model\Brand $brand */
         $brand = $this->_coreRegistry->registry('current_brand');
         if ($brand) {
