@@ -1,4 +1,5 @@
-/pub
+/pub/static
+/pub/media
 /var
 /app/etc/env.php
 /app/code/Mageplaza/Osc/Model/Total/Creditmemo/GiftWrap.php
