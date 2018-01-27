@@ -35,7 +35,7 @@ $fprice = $block->getDisplayValue();
 		$priceval = explode(".", $price);
 		?>
 		<span class="price">
-			<?/* <small><?php echo $currencySymbol; ?></small><span><?php echo $priceval[0]; ?></span><sup><?php echo isset($priceval[1]) ? $priceval[1] : Null; ?></sup> */ ?>
+			<?php /* <small><?php echo $currencySymbol; ?></small><span><?php echo $priceval[0]; ?></span><sup><?php echo isset($priceval[1]) ? $priceval[1] : Null; ?></sup> */ ?>
 			<?php /* @escapeNotVerified */ #echo $block->formatCurrency($block->getDisplayValue(), (bool)$block->getIncludeContainer()) ?>
 			
 			<?php echo $_currencysymbol->getCurrencySymbol(); ?><span itemprop="price" class="price"><?php echo number_format((float)$fprice, 2, '.', ''); ?></span><?php echo $currencySymbol; ?>

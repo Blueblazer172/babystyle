@@ -138,7 +138,7 @@ $storeManager = $obj->get('\Magento\Store\Model\StoreManagerInterface');
 
 foreach($brandCollections as $brand){ ?>
 	<span class="by_brand">
-			<span><a href="<?php echo $storeManager->getStore()->getBaseUrl().$brand->getData('url_key');?>" target="_blank"><?php echo __("By ").$brand->getData('brand_name'); ?></span>
+			<span><a href="<?php echo $storeManager->getStore()->getBaseUrl().$brand->getData('url_key');?>" target="_blank"><?php echo __("By ").$brand->getData('brand_name'); ?></a></span>
 	</span>
 <?php } ?>
 
