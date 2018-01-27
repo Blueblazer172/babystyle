@@ -19,10 +19,10 @@ return array (
     array (
       'default' => 
       array (
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'dbname' => 'babystyle',
-        'username' => 'root',
-        'password' => '',
+        'username' => 'babystyle',
+        'password' => 'cSAETGztAxPBwI4c',
         'active' => '1',
         'model' => 'mysql4',
         'engine' => 'innodb',
