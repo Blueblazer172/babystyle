@@ -2,7 +2,4 @@
 /pub/media
 /var
 /app/etc/env.php
-/app/code/Mageplaza/Osc/Model/Total/Creditmemo/GiftWrap.php
-/app/code/Mageplaza/Osc/Model/Total/Invoice/GiftWrap.php
-/app/code/Mageplaza/Osc/Model/Total/Quote/GiftWrap.php
 /generated
