@@ -35,9 +35,24 @@ class Toolbar
         \Magento\Catalog\Block\Product\ProductList\Toolbar $toolbar,
         $collection
     ){
+		$brand = $this->_coreRegistry->registry('current_brand');
+		
+		$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		$request = $objectManager->get('Magento\Framework\App\Action\Context')->getRequest();
+		//echo $request->getFullActionName();//die('testing');
+		//echo '*****'.empty($_GET['cat']).'*****';die;
+		if($request->getFullActionName()=='brand_index_viewbrand'){
+			if(empty($_GET['cat'])){
+				$collection->addAttributeToFilter('entity_id', ['in' => $brand->getArrayProductIds()]);	
+			}
+				
+				
+		}
+		
+		
 		if (count($collection->getItems()) > 0) {
-           return [$collection];
-       }
+		   return [$collection];
+		}
         /** @var \Magestore\Shopbybrand\Model\Brand $brand */
         $brand = $this->_coreRegistry->registry('current_brand');
         if ($brand) {
